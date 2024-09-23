@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio Layout</title>
+
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Verdana;
+
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body h1,
+        h2,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: rgb(238, 174, 202);
+            box-shadow: red 0 0 10px;
+            padding: 2%;
+
+            /* flex-direction: row;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px; */
+        }
+
+        .topo {
+            background-color: white;
+            text-align: center;
+            width: 100%;
+            position: sticky;
+            top: 0;
+        }
+
+        /* .conteudo {
+    width: 50%;
+} */
+
+        .menu {
+            background-color: violet;
+            padding: 20px;
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+
+            a {
+                text-decoration: none;
+            }
+        }
+
+        main {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 10px;
+
+            flex-wrap: wrap;
+        }
+
+        article {
+            width: 46%;
+            background-color: whitesmoke;
+            border-radius: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .rodape {
+            background-color: gray;
+        }
+
+        .emoji {
+            display: none;
+            /* Esconda o emoji por padrão */
+        }
+
+        h1 {
+            position: relative;
+            text-align: center;
+            /* Centraliza o texto */
+            padding: 0 20px;
+            /* Adiciona um pouco de espaço horizontal ao h1 */
+        }
+
+        h1::before,
+        h1::after {
+            content: "";
+            /* Elemento vazio para representar as barras */
+            display: none;
+            /* Esconda as barras por padrão */
+            width: 100%;
+            /* Barra com largura de 100% do h1 */
+            height: 5px;
+            /* Define a altura das barras */
+            background-color: black;
+            /* Cor das barras */
+            position: absolute;
+            /* Posiciona as barras em relação ao h1 */
+            left: 0;
+            /* Alinha as barras à esquerda do h1 */
+        }
+
+        h1::before {
+            top: -15px;
+            /* Posiciona a barra superior acima do h1 */
+        }
+
+        h1::after {
+            bottom: -15px;
+            /* Posiciona a barra inferior abaixo do h1 */
+        }
+
+        main.conteudo {
+            display: flex;
+            flex-wrap: wrap;
+            /* Permite que os itens quebrem de linha */
+            justify-content: space-between;
+            /* Espaça os itens uniformemente */
+            gap: 20px;
+            /* Espaçamento entre os blocos */
+        }
+
+        article {
+            flex: 1 1 calc(33.333% - 20px);
+            /* Cada bloco ocupa cerca de 1/3 do espaço, subtraindo o gap */
+            background-color: whitesmoke;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        @media screen and (min-width: 550px) {
+            .topo {
+                display: flex;
+                justify-content: space-between;
+                height: 90px;
+                align-items: center;
+            }
+
+            html,
+            body {
+                height: 100%;
+                margin: 0;
+            }
+
+            html,
+            body {
+                height: 100%;
+                margin: 0;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                /* Distribui espaço entre o topo, conteúdo e rodapé */
+            }
+
+            .container {
+                flex: 1;
+                /* O conteúdo ocupa o espaço restante */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 2%;
+            }
+
+            .topo {
+                background-color: white;
+                text-align: center;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 0;
+            }
+
+            .menu {
+                display: flex;
+                justify-content: space-between;
+                width: 50%;
+            }
+
+            main {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: flex-start;
+                /* Alinhando os itens no topo */
+                gap: 10px;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            article {
+                width: 46%;
+                background-color: whitesmoke;
+                border-radius: 10px;
+                padding: 10px;
+                text-align: center;
+                /* Centraliza o texto e imagens dentro dos artigos */
+            }
+
+
+            .rodape {
+                background-color: gray;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 80px;
+                width: 100%;
+                flex-wrap: wrap;
+                text-align: center;
+            }
+
+            .rodape a {
+                margin: 0 10px;
+            }
+
+            /* @media screen and (max-width: 800px) {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        height: 90px;
+        align-items: center;
+    } 
+    }   */
+        }
+  
+
+        @media screen and (min-width: 550px) {
+            .emoji {
+                display: inline;
+                /* Exibe o emoji em telas maiores que 550px */
+            }
+        }
+
+
+        @media screen and (min-width: 550px) {
+
+            h1::before,
+            h1::after {
+                display: block;
+                /* Exibe as barras quando a tela for maior que 550px */
+            }
+        }
+       
+
+        /* Para telas menores que 900px, ajusta para duas colunas */
+        @media screen and (max-width: 900px) {
+            article {
+                flex: 1 1 calc(50% - 20px);
+                /* Cada bloco ocupa metade da largura */
+            }
+        }
+
+        /* Para telas menores que 600px, ajusta para uma coluna */
+        /* @media screen and (max-width: 600px) {
+            article {
+                flex: 1 1 100%;
+                
+            }
+        } */
+
+        @media screen and (max-width: 900px) {
+    article {
+        flex: 1 1 calc(50% - 20px); /* Cada bloco ocupa metade da largura */
+    }
+}
+
+@media screen and (min-width: 900px) {
+    article {
+        flex: 1 1 calc(33.333% - 20px); /* Cada bloco ocupa um terço da largura */
+    }
+}
+
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <header class="topo">
+            <h1><span class="emoji">👻</span> Exercício</h1>
+            <nav class="menu">
+                <a href="">Link 1</a>
+                <a href="">Link 2</a>
+                <a href="">Link 3</a>
+                <a href="">Link 4</a>
+            </nav>
+        </header>
+
+        <hr>
+
+        <main class="conteudo">
+            <article class="cachorro">
+                <img src="imagens para o exercicio/cachorro.jpg" alt="Cachorro">
+                <h2>Cachorro</h2>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ipsum, nobis a consequuntur harum natus
+                    impedit ducimus consectetur autem mollitia quos velit quod rerum quisquam adipisci nam, sunt
+                    voluptatem quam.</p>
+            </article>
+
+            <article class="cidade">
+                <img src="imagens para o exercicio/cidade.jpg" alt="">
+                <h2>Cidade</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ipsum, nobis a consequuntur harum natus
+                    impedit ducimus consectetur autem mollitia quos velit quod rerum quisquam adipisci nam, sunt
+                    voluptatem quam.</p>
+            </article>
+
+            <article class="escadas">
+                <img src="imagens para o exercicio/escadas.jpg" alt="">
+                <h2>Escadas</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ipsum, nobis a consequuntur harum natus
+                    impedit ducimus consectetur autem mollitia quos velit quod rerum quisquam adipisci nam, sunt
+                    voluptatem quam.</p>
+            </article>
+
+            <article class="trilhos">
+                <img src="imagens para o exercicio/trilhos.jpg" alt="">
+                <h2>Trilhos</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ipsum, nobis a consequuntur harum natus
+                    impedit ducimus consectetur autem mollitia quos velit quod rerum quisquam adipisci nam, sunt
+                    voluptatem quam.</p>
+            </article>
+
+            <article class="montanhas">
+                <img src="imagens para o exercicio/montanhas.jpg" alt="">
+                <h2>Montanhas</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ipsum, nobis a consequuntur harum natus
+                    impedit ducimus consectetur autem mollitia quos velit quod rerum quisquam adipisci nam, sunt
+                    voluptatem quam.</p>
+            </article>
+
+            <article class="luzes">
+                <img src="imagens para o exercicio/luzes.jpg" alt="">
+                <h2>Luzes</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ipsum, nobis a consequuntur harum natus
+                    impedit ducimus consectetur autem mollitia quos velit quod rerum quisquam adipisci nam, sunt
+                    voluptatem quam.</p>
+            </article>
+        </main>
+    </div>
+
+    <footer class="rodape">
+        <nav class="rodape">
+            <h2>Entre em contato conosco</h2>
+                    <a href="tel:(11)2135-0300">(11) 2135-0300</a>
+                    <a href="mailto:teste@teste.com">teste@teste.com</a>
+
+            <h2>Siga-nos</h2>
+                    <a href="Facebook">Facebook</a>
+                    <a href="Linkedn">Linkedn</a>        
+        </nav>
+    </footer>
+</body>
+
+</html>
