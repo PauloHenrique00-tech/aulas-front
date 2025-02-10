@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<style>
+
+/* Estiliza o corpo da página */
+body {
+    font-family: "Chakra Petch", sans-serif; /* Define a fonte padrão */
+    background-color: #DDDDDD; /* Cor de fundo da página */
+    display: flex; /* Usa Flexbox para layout */
+    flex-direction: column; /* Alinha os itens na vertical */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens verticalmente */
+    height: 100vh; /* Preenche a altura total da viewport */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o padding padrão */
+}
+
+/* Estiliza os títulos h1 */
+h1 {
+    font-size: 2.5rem; /* Tamanho da fonte */
+    color: #222831; /* Cor do texto */
+    text-align: center; /* Alinha o texto ao centro */
+    letter-spacing: 0.4rem; /* Espaçamento entre letras */
+}
+
+/* Estiliza as seções da página */
+section {
+    display: flex; /* Usa Flexbox para layout */
+    flex-direction: column; /* Alinha os itens na vertical */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    margin-bottom: 3rem; /* Espaçamento abaixo de cada seção */
+}
+
+/* Estiliza os inputs dentro das seções */
+section input {
+    width: 30rem; /* Largura dos inputs */
+    border: none; /* Remove a borda padrão */
+    padding: 1rem; /* Espaçamento interno */
+    border-radius: 1.5rem; /* Borda arredondada */
+    margin-bottom: 1rem; /* Espaçamento abaixo dos inputs */
+    color: #45474B; /* Cor do texto */
+    font-size: 1rem; /* Tamanho da fonte */
+    box-sizing: border-box; /* Inclui padding e border na largura total */
+}
+
+/* Estiliza os botões dentro das seções */
+section button {
+    padding: 0.8rem 1.2rem; /* Espaçamento interno do botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 1.5rem; /* Borda arredondada */
+    background-color: #30475E; /* Cor de fundo do botão */
+    color: #F5F7F8; /* Cor do texto do botão */
+    font-size: 1rem; /* Tamanho da fonte */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+/* Adiciona efeito hover ao botão de pesquisa */
+section button:hover {
+    background-color: #30475E; /* Muda a cor de fundo ao passar o mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra mais intensa */
+}
+
+/* Estiliza a caixa de resultados da pesquisa */
+.resultados-pesquisa {
+    width: 60rem; /* Largura máxima da caixa de resultados */
+    height: 46vh; /* Altura máxima da caixa de resultados */
+    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+    margin-top: 1rem; /* Espaçamento acima da caixa de resultados */
+    padding: 1rem; /* Espaçamento interno */
+    border-radius: 0.6rem; /* Borda arredondada */
+}
+
+/* Estiliza cada item de resultado */
+.item-resultado {
+    background: #FFFFFF; /* Cor de fundo dos itens */
+    border-radius: 0.6rem; /* Borda arredondada */
+    padding: 1rem; /* Espaçamento interno */
+    margin-bottom: 1rem; /* Espaçamento abaixo dos itens */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+/* Estiliza os títulos dentro dos itens de resultado */
+.item-resultado h2 {
+    font-size: 1.5rem; /* Tamanho da fonte */
+    color: #222831; /* Cor do texto */
+}
+
+/* Estiliza os links dentro dos itens de resultado */
+.item-resultado a {
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    color: #30475E; /* Cor do texto dos links */
+}
+
+/* Estiliza os links quando são passados o mouse sobre */
+.item-resultado a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Estiliza a descrição meta dentro dos itens de resultado */
+.descricao-meta {
+    color: #45474B; /* Cor do texto */
+    margin: 0.5rem 0; /* Margem acima e abaixo */
+}
+/* Estiliza o rodapé da página */
+footer {
+    background-color: #F5F7F8; /* Cor de fundo do rodapé */
+    color: #45474B; /* Cor do texto */
+    text-align: center; /* Alinha o texto ao centro */
+    padding: 0; /* Espaçamento interno */
+    width: 100%; /* Largura total da página */
+    position: absolute; /* Posiciona o rodapé */
+    bottom: 0; /* Alinha ao fundo da página */
+    font-size: 1rem; /* Tamanho da fonte */
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem; /* Tamanho da fonte em telas menores */
+        letter-spacing: 0.2rem; /* Espaçamento entre letras em telas menores */
+    }
+
+    section input {
+        width: 25rem; /* Largura dos inputs em telas menores */
+        padding: 0.8rem; /* Espaçamento interno em telas menores */
+    }
+
+    .resultados-pesquisa {
+        width: 40rem; /* Largura da caixa de resultados em telas menores */
+        height: 40vh; /* Altura da caixa de resultados em telas menores */
+    }
+
+    .item-resultado h2 {
+        font-size: 1.3rem; /* Tamanho da fonte dos títulos em telas menores */
+    }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 1.8rem; /* Tamanho da fonte em telas pequenas */
+        letter-spacing: 0.1rem; /* Espaçamento entre letras em telas pequenas */
+    }
+
+    section input {
+        width: 17rem; /* Largura total dos inputs em telas pequenas */
+    }
+
+    section button {
+        padding: 0.6rem 1rem; /* Espaçamento interno do botão em telas pequenas */
+        font-size: 0.9rem; /* Tamanho da fonte do botão em telas pequenas */
+    }
+
+    .resultados-pesquisa {
+        width: 90%; /* Largura da caixa de resultados em telas pequenas */
+        height: 50vh; /* Altura da caixa de resultados em telas pequenas */
+    }
+
+    .item-resultado h2 {
+        font-size: 1.1rem; /* Tamanho da fonte dos títulos em telas pequenas */
+    }
+
+    footer {
+        font-size: 0.9rem; /* Tamanho da fonte do rodapé em telas pequenas */
+    }
+}
+
+@media screen and (max-width: 900px) {
+    article {
+        flex: 1 1 calc(50% - 20px); /* Cada bloco ocupa metade da largura */
+    }
+}
+
+@media screen and (min-width: 900px) {
+    article {
+        flex: 1 1 calc(33.333% - 20px); /* Cada bloco ocupa um terço da largura */
+    }
+}
+
+
+
+</style>
+
+<body>
+    <header>
+        <h1>Jogadores de xadrez</h1>
+    </header>
+    <main>
+        <section>
+            <input type="text" placeholder="Digite o nome no jogador">
+            <button onclick="pesquisar">Pesquisar</button>
+        </section>
+        <section class="resultados-pesquisa" id="resultados-pesquisa">
+              <div class="item-resultado"> 
+                <h2>
+                    <a href="https://www.youtube.com/watch?v=qiRUKqqqaok" target="_blank">José Raúl Capablanca</a>
+                </h2>
+                <p class="descricao-meta">José Raúl Capablanca foi um enxadrista cubano que marcou época no mundo dos
+                    tabuleiros. Considerado por muitos como um dos maiores jogadores de todos os tempos, Capablanca era
+                    conhecido por seu estilo de jogo elegante e intuitivo. Campeão mundial entre 1921 e 1927, ele
+                    possuía uma habilidade natural para o jogo, combinada com um profundo entendimento das posições. Sua
+                    invencibilidade durante um longo período e suas partidas memoráveis tornaram-no uma lenda do xadrez,
+                    cuja influência ainda é sentida hoje.
+                </p>
+                <a href="https://pt.wikipedia.org/wiki/Jos%C3%A9_Ra%C3%BAl_Capablanca" target="_blank">Para mais
+                    informações
+                </a>
+            </div>
+            <div class="item-resultado">
+                <h2>
+                    <a href="https://www.youtube.com/watch?v=vnDWODva3ak" target="_blank">Alexander Alekhine</a>
+                </h2>
+                <p class="descricao-meta">Alexander Alekhine foi um dos maiores enxadristas de todos os tempos e um dos
+                    campeões mundiais mais dominantes da história do xadrez. Conhecido por seu estilo de jogo
+                    extremamente agressivo e atacante, Alekhine era temido pelos seus oponentes.
+
+                    Nascido na Rússia, Alekhine conquistou o título mundial em 1927 e o manteve por diversos anos,
+                    perdendo-o apenas para recuperar novamente. Seu jogo era caracterizado por sacrifícios audaciosos,
+                    combinações complexas e uma profunda compreensão da estratégia posicional.
+
+                    Alekhine era um jogador muito completo, com uma capacidade incrível de calcular variantes profundas
+                    e de encontrar recursos inesperados em posições aparentemente perdidas. Sua personalidade complexa e
+                    controversa, marcada por altos e baixos, também o tornou uma figura fascinante no mundo do xadrez.
+                </p>
+                <a href="https://pt.wikipedia.org/wiki/Alexander_Alekhine" target="_blank">Para mais informações</a>
+            </div>
+
+            <div class="item-resultado">
+                <h2>
+                    <a href="https://www.youtube.com/watch?v=IKE8F9JdcoE" target="_blank">Emanuel Lasker</a>
+                </h2>
+                <p class="descricao-meta">Emanuel Lasker foi um enxadrista alemão que dominou o mundo dos tabuleiros por um período excepcionalmente longo. Conhecido por seu estilo de jogo sólido, profundo e estratégico, Lasker era um verdadeiro pensador do xadrez.
+
+                    Campeão mundial entre 1894 e 1921, Lasker era famoso por sua capacidade de analisar posições
+                    complexas e encontrar soluções inesperadas. Ele era um jogador muito versátil, capaz de se adaptar a
+                    diferentes estilos de jogo e de encontrar a melhor maneira de aproveitar as oportunidades que
+                    surgissem.
+Além de suas conquistas no xadrez, Lasker também era um matemático e filósofo. Sua mente brilhante e
+                    sua capacidade de pensamento abstrato contribuíram para seu sucesso no tabuleiro.</p>
+                <a href="https://pt.wikipedia.org/wiki/Emanuel_Lasker" target="_blank">Para mais informações</a>
+            </div> -->
+
+        </section>
+    </main>
+    <footer>
+        <p>2024 - Jogadores de xadrez famosos. Todos os direitos reservados.</p>
+        <p>Para mais informações entre em contato pelo e-mail: weliton.jogadordexadrez@gmail.com</p>
+    </footer>
+    <script src="dados.js"></script>
+    <script src="app.js"></script>
+</body>
+
+
+</html>
